@@ -31,6 +31,7 @@ export function Welcome() {
               type="number"
               value={principalAmt}
               onChange={(e) => setPrincipalAmt(Number(e.target.value))}
+              className="w-full px-4 py-2 border border-gray-300  text-gray-700  rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-2"
             />
           </div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -41,6 +42,7 @@ export function Welcome() {
             name="InterestRate"
             value={interestRate}
             onChange={(e) => setInterestRate(Number(e.target.value))}
+            className="w-full px-4 py-2 border border-gray-300  text-gray-700  rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-2"
           />
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Loan Term (Years)
@@ -50,12 +52,25 @@ export function Welcome() {
             name="LengthOfLoan"
             value={years}
             onChange={(e) => setYears(Number(e.target.value))}
+            className="w-full px-4 py-2 border border-gray-300  text-gray-700 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-2"
           />
 
-          <button onClick={handleCalculateClick}>Calculate</button>
+          <button
+            onClick={handleCalculateClick}
+            className="w-full px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700 transition"
+          >
+            Calculate
+          </button>
 
-          <div>
-            Your monthly mortgage payment will be ${monthlyPayment.toFixed(2)};
+          <div className="text-center text-lg text-gray-700 font-medium mt-4">
+            {monthlyPayment > 0 && (
+              <>
+                Your monthly payment is:
+                <span className="font-bold text-green-600">
+                  ${monthlyPayment.toFixed(2)}
+                </span>
+              </>
+            )}
           </div>
         </div>
       </div>
